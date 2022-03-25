@@ -34,12 +34,25 @@ const Shop = () => {
         setCart(savedCart);
     }, [products]);
 
-    const setEventHandle = product => {
-        const newCart = [...cart, product];
+    const setEventHandle = selectedProduct => {
+        //check quantity in the cart
+        let newCart = [];
+        const exists = cart.find(product => product.id === selectedProduct.id);
+        if (!exists) {
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct];
+        }
+        else {
+            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            exists.quantity += 1;
+            newCart = [...rest, exists];
+        }
+
+        // add to cart
         setCart(newCart);
 
         // add to local storage
-        addToDb(product.id);
+        addToDb(selectedProduct.id);
     }
 
     return (
