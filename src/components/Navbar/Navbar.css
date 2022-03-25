@@ -1,0 +1,13 @@
+.mormo-navbar {
+    background-color: #1C2B35;
+}
+
+.mormo-navbar a {
+    color: white;
+}
+
+.mormo-navbar a:hover {
+    color: orange;
+}
+
+
