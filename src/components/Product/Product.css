@@ -1,0 +1,8 @@
+.mormo-btn {
+    background-color: #FFE0B3;
+    font-weight: bold;
+}
+
+.mormo-btn:hover {
+    background-color: orange;
+}
